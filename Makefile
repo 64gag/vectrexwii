@@ -43,6 +43,7 @@ LIBS	+= -lbte -logc -lm
 # include and lib
 #---------------------------------------------------------------------------------
 LIBDIRS	:= $(CURDIR)/$(GRRLIB)
+LIBDIRS	+= $(PORTLIBS)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -90,7 +91,7 @@ export OFILES	:=	$(addsuffix .o,$(BINFILES)) \
 export INCLUDE	:=	$(foreach dir,$(INCLUDES), -iquote $(CURDIR)/$(dir)) \
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 					-I$(CURDIR)/$(BUILD) \
-					-I$(LIBOGC_INC)
+					-I$(LIBOGC_INC) -I$(PORTLIBS)
 
 #---------------------------------------------------------------------------------
 # build a list of library paths
